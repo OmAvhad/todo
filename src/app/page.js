@@ -42,14 +42,14 @@ export default function Home() {
 
     return (
       <>
-        <main className="flex min-h-screen flex-col items-center p-14 gap-10">
+        <main className="flex min-h-screen flex-col items-center p-4 sm:p-14 gap-10">
         {!user.isLoggedIn 
           ?
           <CreatUser setUser={setUser}/>
           :
           <Profile user={user}/>
         }
-          <div className='text-3xl font-mono flex flex-col w-[500px]'>
+          <div className='text-3xl font-mono flex flex-col sm:w-[500px]'>
             {/* <span className='text-3xl'>Todo</span> */}
             <TodoAdd setTodos={setTodos} idCounter={idCounter} setIdCounter={setIdCounter}/>
             <TodoList todos={todos} setTodos={setTodos} setIdCounter={setIdCounter}/>

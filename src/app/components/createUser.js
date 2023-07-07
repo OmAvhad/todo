@@ -24,9 +24,9 @@ export default function CreateUser({ setUser }) {
   return (
     <>
       <Modal show={props.openModal === 'form-elements'} size="md" popup onClose={() => props.setOpenModal(undefined)}>
-        <Modal.Header />
+        {/* <Modal.Header /> */}
         <Modal.Body>
-          <div className="space-y-6">
+          <div className="space-y-6 mt-10">
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h3>
             <div>
               <div className="mb-2 block">
@@ -35,7 +35,7 @@ export default function CreateUser({ setUser }) {
               <TextInput id="name" placeholder="name" ref={nameRef} required />
             </div>
             <div className="w-full">
-              <Button onClick={handleClick}>Sign Up</Button>
+              <Button className="bg-blue-500" onClick={handleClick}>Sign Up</Button>
             </div>
           </div>
         </Modal.Body>

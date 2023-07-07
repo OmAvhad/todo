@@ -24,8 +24,8 @@ function Profile( { user } ) {
     const currentPhrase = phrases[currentPhraseIndex];
 
     return (
-        <div>
-            <h1 className='text-4xl font-medium'>👋 Hello {user.name} {currentPhrase} </h1>
+        <div className=''>
+            <h1 className='text-2xl sm:text-4xl font-medium '>👋 Hello {user.name}, {currentPhrase} </h1>
         </div>
     )
 }

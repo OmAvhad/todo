@@ -64,7 +64,7 @@ function TodoAdd( { setTodos, idCounter, setIdCounter } ) {
                 value={todo.title}
                 onChange={handleInputChange}
             />
-            <Button className="bg-blue-500 text-sm focus:ring-0 hover:bg-blue-500" onClick={handleClick}>Add</Button>
+            <Button className="bg-blue-500 text-sm focus:ring-0 hover:bg-none" onClick={handleClick}>Add</Button>
         </div> 
     )
 
