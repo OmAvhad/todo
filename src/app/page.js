@@ -15,16 +15,7 @@ export default function Home() {
       isLoggedIn: false
     })
     
-    const [idCounter, setIdCounter] = useState(() => {
-      const localStorageData = localStorage.getItem("todos");
-      if (localStorageData) {
-        const todos = JSON.parse(localStorageData);
-        const maxId = todos.reduce((max, todo) => (todo.id > max ? todo.id : max), 0);
-        return maxId + 1;
-      } else {
-        return 1;
-      }
-    });
+    const [idCounter, setIdCounter] = useState(1);
 
     useEffect(() => {
       const localStorageUserData = localStorage.getItem("user");
@@ -35,6 +26,9 @@ export default function Home() {
       const localStorageData = localStorage.getItem("todos");
       if (localStorageData) {
         setTodos(JSON.parse(localStorageData));
+        const todos = JSON.parse(localStorageData);
+        const maxId = todos.reduce((max, todo) => (todo.id > max ? todo.id : max), 0);
+        setIdCounter(maxId + 1);
       }
     }, []);
     
