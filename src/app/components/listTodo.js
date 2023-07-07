@@ -3,7 +3,6 @@
 import React, {useEffect, useState} from 'react'
 import TodoDelete from './deleteTodo'
 import TodoComplete from './completeTodo';
-import { Button } from 'flowbite-react'
 
 function TodoList( { todos, setTodos, idCounter, setIdCounter } ) {
     const [ filter, setFilter ] = useState('active')
@@ -37,10 +36,10 @@ function TodoList( { todos, setTodos, idCounter, setIdCounter } ) {
 
     return (
         <div className='flex flex-col gap-1'>
-            <div className='flex flex-row justify-center gap-6 mt-2 '>    
-                <Button onClick={(e) => handleFilter("all")} className={`${filter === "all" ? "bg-blue-400" : "" }`}>All</Button>
-                <Button onClick={(e) => handleFilter("active")} className={`${filter === "active" ? "bg-blue-400" : "" }`}>Active</Button>
-                <Button onClick={(e) => handleFilter("completed")} className={`${filter === "completed" ? "bg-blue-400" : "" }`}>Completed</Button>
+            <div className='flex flex-row justify-center gap-6 mt-2'>    
+                <button onClick={(e) => handleFilter("all")} className={`${filter === "all" ? "bg-blue-400" : "" } border text-black text-sm px-2 rounded-lg`}>All</button>
+                <button onClick={(e) => handleFilter("active")} className={`${filter === "active" ? "bg-blue-400" : "" } border text-black text-sm px-2 rounded-lg`}> Active</button>
+                <button onClick={(e) => handleFilter("completed")} className={`${filter === "completed" ? "bg-blue-400" : "" } border text-black text-sm px-2 rounded-lg`}> Completed</button>
             </div>
             {todos
                 .filter((todo) => {
@@ -53,9 +52,9 @@ function TodoList( { todos, setTodos, idCounter, setIdCounter } ) {
                 })
                 .map((todo)=> (
                     <div className="flex flex-row items-center justify-between" key={todo.id}>
-                        <div className='flex flex-row items-center gap-2'>
+                        <div className='flex flex-row items-center gap-2 '>
                             <TodoComplete todo={todo} onComplete={() =>handleComplete(todo.id)}/>
-                            <div className={`text-2xl ${todo.isCompleted ? "line-through" : "" }`}>{todo.title}</div>
+                            <div className={`text-xl ${todo.isCompleted ? "line-through" : "" }`}>{todo.title}</div>
                         </div>
                         <div className='w-14 justify-center'>
                             <TodoDelete todoId={todo.id} onDelete={() =>handleDelete(todo.id)}/>
